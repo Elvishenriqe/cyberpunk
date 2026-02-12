@@ -1257,6 +1257,35 @@ select.form-input {
     // 5. INICIALIZAÇÃO E SCROLL REVEAL
     // ==========================================
 window.onload = function() {
+
+// --- CÓDIGO MÁGICO DOS BOTÕES (DELEGAÇÃO DE EVENTOS) ---
+    document.addEventListener('click', function(event) {
+        // Verifica se clicamos em um botão de missão ou contrato
+        const isBotaoMissao = event.target.classList.contains('m-btn');
+        const isBotaoCta = event.target.classList.contains('cta-button');
+        
+        // Verifica se o botão está dentro do modal de cidades
+        const isBotaoCidade = event.target.closest('#cityModal');
+
+        // AÇÃO 1: Se for botão de contrato/missão E NÃO for o da cidade -> Abre o formulário
+        if ((isBotaoMissao || isBotaoCta) && !isBotaoCidade) {
+            if (typeof playClickSound === "function") playClickSound(); // Toca o som se existir
+            
+            const modalAgente = document.getElementById('missionModal');
+            if(modalAgente) {
+                modalAgente.style.display = 'flex'; // Abre o modal de registro
+            }
+        }
+        
+        // AÇÃO 2: Se for o botão dentro do modal de cidade -> Apenas fecha a cidade
+        if (isBotaoCta && isBotaoCidade) {
+            if (typeof playClickSound === "function") playClickSound();
+            document.getElementById('cityModal').style.display = 'none'; // Fecha o modal da cidade
+        }
+    });
+    // --- FIM DO CÓDIGO DOS BOTÕES ---
+
+
         // --- INÍCIO DA LÓGICA DO LOADER (ADICIONADO) ---
         const bar = document.getElementById('loader-bar');
         const text = document.getElementById('loader-text');
