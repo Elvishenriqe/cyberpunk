@@ -570,36 +570,49 @@ select.form-input {
 }
 
 
-/* Ajuste específico para Mobile */
+/* Ajuste Fino para Mobile - Missões Ativas */
 @media (max-width: 768px) {
+    /* Força o slide a virar uma coluna */
     .mission-slide {
-        flex-direction: column !important; /* Empilha os itens verticalmente */
-        text-align: center;
-        padding: 20px !important;
+        display: flex !important;
+        flex-direction: column !important; 
+        height: auto !important;
+        min-height: 600px; /* Garante espaço para tudo */
     }
 
+    /* Move a imagem para o topo e dá tamanho a ela */
     .m-image {
         width: 100% !important;
-        height: 200px !important; /* Ajuste a altura da imagem no celular aqui */
-        order: -1; /* Força a imagem a ficar no topo */
-        margin-bottom: 20px;
+        height: 250px !important; /* Altura da imagem no topo */
+        order: 1 !important; /* Garante que venha primeiro */
+        flex: none !important;
     }
 
+    /* Ajusta a caixa de texto para ficar embaixo */
     .m-info {
         width: 100% !important;
-        padding: 0 !important;
+        height: auto !important;
+        order: 2 !important; /* Garante que venha depois da imagem */
+        padding: 30px 20px !important;
+        background: #111 !important; /* O fundo escuro que você mencionou */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .m-info h3 {
-        font-size: 1.5rem !important;
+        font-size: 1.8rem !important;
+        margin-bottom: 15px !important;
     }
 
+    /* Botão ocupando a largura para facilitar o toque */
     .m-btn {
-        width: 100%; /* Botão grandão e fácil de clicar no polegar */
-        margin-top: 15px;
+        width: 100% !important;
+        max-width: 280px;
+        margin-top: 20px !important;
     }
 }
-
 
 
 </style>
