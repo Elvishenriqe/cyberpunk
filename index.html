@@ -569,6 +569,39 @@ select.form-input {
     overflow: hidden; /* Evita barras de rolagem estranhas */
 }
 
+
+/* Ajuste específico para Mobile */
+@media (max-width: 768px) {
+    .mission-slide {
+        flex-direction: column !important; /* Empilha os itens verticalmente */
+        text-align: center;
+        padding: 20px !important;
+    }
+
+    .m-image {
+        width: 100% !important;
+        height: 200px !important; /* Ajuste a altura da imagem no celular aqui */
+        order: -1; /* Força a imagem a ficar no topo */
+        margin-bottom: 20px;
+    }
+
+    .m-info {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .m-info h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .m-btn {
+        width: 100%; /* Botão grandão e fácil de clicar no polegar */
+        margin-top: 15px;
+    }
+}
+
+
+
 </style>
 </head>
 <body>
